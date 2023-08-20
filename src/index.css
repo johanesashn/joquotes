@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --smooth-green: #D1EBE7;
+  --grey: #DEDDDD;
+  --green: #59F7B0;
+  --dark-green: #0dc874;
+  --white: #FBFBFB;
+  --dark: #212020;
+  --blue: rgb(103, 147, 236);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow-x: hidden;
+  text-decoration: none;
+}
+
+a {
+  color: var(--dark);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  position: relative;
+}
+
+.invisible {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+}
+
+.title {
+  font-size: 6.5rem;
+  line-height: 6rem;
+  overflow: hidden;
+  text-shadow: 3px 3px var(--white);
+  z-index: 1;
+}
+
+.sub-title {
+  font-size: 2.5rem;
+  z-index: 1;
+  overflow: visible;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+  position: fixed;
+  background-color: var(--white);
+  right: 0;
+  left: 0;
+  justify-content: space-between;
+  z-index: 2;
+  font-weight: bolder;
+}
+
+.nav-main {
+  display: flex;
+  gap: 50px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-socials img {
+  width: 30px;
+}
+
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 50px;
+  padding-top: 60px;
+  box-sizing: border-box;
+  width: 100vw;
+  background-color: var(--white);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  /* background-image: url("../public/lamp.png"); */
+  /* background-repeat: no-repeat; */
+  /* filter: grayscale(100%); */
+  /* background-size: 500px; */
+  /* background-position: right center; */
+}
+
+.jumbotron-blob {
+  position: absolute;
+  right: -200px;
+  width: 700px;
+}
+
+.jumbotron-blob:last-child{
+  bottom: -300px;
+  left: -400px;
+}
+
+.search {
+  display: flex;
+  gap: 30px;
+  padding: 30px 40px;
+}
+
+.search-instruction {
+  font-size: 1.5rem;
+}
+
+.search-select {
+  font-size: 1.1em;
+  width: 250px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 5px;
+  padding: .3rem 1rem;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.search-select:focus, .search-select:active {
+  border: none;
+}
+
+.container {
+  /* background-color: var(--green); */
+  padding: 30px;
+  display: grid;
+  grid-template-areas: "card card card card";
+  gap: 20px;
+  z-index: 1;
+  min-height: 50vh;
+  place-content: center;
+}
+
+.container .sub-title {
+  background-color: var(--grey);
+  padding: .3rem 1rem;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.card-quote {
+  margin: 2rem 0;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.card-author {
+  position: absolute;
+  bottom: 20px;
+}
+
+.regenerate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.regenerate-btn{
+  background-color: var(--dark);
+  color: var(--white);
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  letter-spacing: .05rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+footer img {
+  width: 30px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-button{
+  background-color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark);
+  font-weight: 500;
+  padding: .3rem 1rem;
+  border: 1.5px solid var(--dark);
+  border-radius: 5px;
+  height: fit-content;
+}
+
+@media (max-width: 820px){
+  .container {
+    grid-template-areas: "card card card";
+  }
+
+  .jumbotron-blob {
+    top: 0;
+  }
+
+  .jumbotron-blob:last-child{
+    top: 500px;
+  }
+
+  .title {
+    font-size: 6rem;
+    line-height: 5.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .title {
+    font-size: 4.5rem;
+    line-height: 4rem;
+  }
+
+  .sub-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px){
+  nav {
+    padding: 20px 30px;
+  }
+  .nav-main {
+    gap: 20px;
+  }
+
+  .nav-list {
+    gap: 20px;
+  }
+
+  .jumbotron {
+    height: 90vh;
+    padding: 30px;
+    background-size: 200px;
+    background-position-y: 10%;
+  }
+
+  .jumbotron-blob {
+    width: 500px;
+  }
+
+  .jumbotron-blob:last-child{
+    left: -300px;
+    position: absolute;
+    bottom: -600px;
+  }
+
+  .title {
+    font-size: 4rem;
+    line-height: 3.8rem;
+  }
+
+  .sub-title {
+    margin-top: .3rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  .search {
+    flex-wrap: wrap;
+  }
+
+  .search-instruction {
+    font-size: 1.3rem;
+  }
+  
+  .search-select{
+    font-size: 1.2rem;
+    margin-top: -1rem;
+  }
+
+  .container {
+    grid-template-areas: "card";
+  }
+
+  .container .sub-title {
+    background-color: var(--grey);
+    padding: .5rem 1rem;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1.7rem;
+  }
+}
