@@ -12,32 +12,33 @@ export default function App() {
   const [quotes, setQuotes] = useState([])
   const [category, setCategory] = useState("")
 
-  const fetchQuotes = async (category) => {
-    const limit = 8
+  const fetchQuotes = async () => {
+      let tempQuotes = []
 
-      try {
-          const response = await axios.get(
-            `https://api.api-ninjas.com/v1/quotes?category=${category}&limit=${limit}`,
-            {
-              headers: {
-                'X-Api-Key': 'wuzpuayoi73m3Ov4N5vplQ==cfCaM4SSx2lTH8ay',
-              },
-            }
-          )
-
-          setQuotes(response.data)
-        } catch (error) {
-          console.error("Error: ", error.response.data)
-        }
+      for (let i = 0; i < 4; i++){
+        try {
+            const response = await axios.get(
+              `https://api.api-ninjas.com/v1/quotes?category=${category}`,
+              {
+                headers: {
+                  'X-Api-Key': 'wuzpuayoi73m3Ov4N5vplQ==cfCaM4SSx2lTH8ay',
+                },
+              }
+            )
+            tempQuotes.push(response.data[0])
+            } catch (error) {
+              console.error("Error: ", error.response.data)
+              }
+      }
+      setQuotes(tempQuotes)
   };
 
   useEffect(() => {
-    fetchQuotes(category)
+    fetchQuotes()
   }, [category])
 
   return (
     <>
-      {console.log("category: " + category)}
       <Navbar/>
       <Jumbotron/>
       <Search 
@@ -56,7 +57,10 @@ export default function App() {
             />
           ))
           :
-          <h2 className="sub-title">I'm Waiting For You To Select The Category</h2>
+          <>
+            <h2 className="sub-title">I'm Waiting For You To Select The Category</h2>
+            <p></p>
+          </>
         }
       </div>
       {
